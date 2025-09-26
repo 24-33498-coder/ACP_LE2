@@ -92,7 +92,7 @@ class StudentRecords:
         matches = [str(s) for s in self.students if name in s.name_id[1].lower()]
         return matches if matches else ["No matching students found"]
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     records = StudentRecords()
     print(records.add_student(33498, "Tristan", "33498@gmail.com"))
     print(records.update_student(33498,
