@@ -73,5 +73,35 @@ class StudentRecords:
             if student.name_id[0] == student_id:
                 student.courses.add(course)
                 return "Courses added successfully"
-            return "Student not found
+            return "Student not found"
+
+    def search_student(self, student_id):
+       for student in self.students:
+          if student.name_id[0] == student_id:
+             return str(student)
+          return "Student not found"
+
+    def search_student(self, student_id):
+        for student in self.students:
+            if student.name_id[0] == student_id:
+                return str(student)
+        return "Student not found"
+
+    def search_by_name(self, name):
+        name = name.lower()
+        matches = [str(s) for s in self.students if name in s.name_id[1].lower()]
+        return matches if matches else ["No matching students found"]
+
+if __name__ == "__main__":
+    records = StudentRecords()
+    print(records.add_student(33498, "Tristan", "33498@gmail.com"))
+    print(records.update_student(33498,
+    email="tristan_new@gmail.com",
+    grades={"OOP": "Z", "ACP": "Z", "PATHfit": "A"},
+    courses={"OOP", "ACP", "PATHfit"}))
+    print(records.search_student(33498))
+    print(records.add_student(54321, "Jace", "Jace@gmail.com", {"OOP": "A", "ACP":, "D"}, {"OOP", "ACP"}))
+    print("Tristan's GPA:", [student.calculate_gpa() for student in records.students if student.name_id[0] == 33498][0])
+    print("Jace's GPA:", [student.calculate_gpa() for student in records.students if student.name_id[0] == 54321][0])
+    print(records.delete_student(54321))
     
